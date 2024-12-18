@@ -1,0 +1,1 @@
+& 'C:\Program Files\7-Zip\7z.exe' a -tzip -r dst\extension-latest.zip .\manifest.json .\icon.png .\overpassAPIStorage.js .\background.js popup\* -x!imgs\*

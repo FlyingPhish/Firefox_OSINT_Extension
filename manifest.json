@@ -1,0 +1,24 @@
+{
+  "manifest_version": 2,
+  "name": "OSINT Google Dork Scanner",
+  "version": "3.2",
+  "description": "A go-to OSINT extension for performing google dorks against visited sites and inputted text such as company names, subdomains, domains. This extension also includes a shortcut to Overpass Turbo and adds several queries.",
+  "permissions": ["<all_urls>", "webRequest", "tabs", "storage", "activeTab"],
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://overpass-turbo.eu/*"],
+      "js": ["overpassAPIStorage.js"],
+      "run_at": "document_end"
+    }
+  ],
+  "browser_action": {
+    "default_icon": "icon.png",
+    "default_title": "Launch Google Dork Scan",
+    "default_popup": "popup/popup.html"
+  },
+  "author": "BanditPingu",
+  "homepage_url": "N/A"
+}

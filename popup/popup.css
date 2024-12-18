@@ -1,0 +1,210 @@
+body {
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  width: 385px;
+  margin: 5px;
+  padding: 5px;
+  background-color: #dbdbdbe5;
+  color: #333; /* Dark text for readability */
+}
+
+h1, h2 {
+  margin: 10px 0;
+  color: #222; /* Slightly darker for headings */
+}
+
+h1 { font-size: 22px; }
+h2 { font-size: 18px; }
+
+#status {
+  color: black;
+  font-size: 15px;
+  font-weight: 600;
+  margin: 10px 0px 10px 0px;
+}
+
+button {
+  background-color: #e9a425;
+  border: none;
+  color: #333;
+  padding: 6px 6px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 14px;
+  cursor: pointer;
+  width: 100%;
+  border-radius: 3px;
+  transition: background-color 0.3s ease;
+  margin-top: 5px;
+  font-weight:550;
+}
+
+#scanType {
+  border: none;
+  padding: 6px 6px;
+  text-align: center;
+  font-size: 14px;
+  cursor: pointer;
+  width: 100%;
+  border-radius: 3px;
+  transition: background-color 0.3s ease;
+  margin-top: 5px;
+  margin-right: 3px;
+}
+
+button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+.scanButton {
+  margin-bottom: 5px;
+}
+
+.domainList {
+  display: flex; /* Add this */
+  flex-direction: column; /* Add this */
+  margin: 10px 0;
+}
+
+.domainItem {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.domainItem span {
+  flex: 2; /* This gives more space to the text */
+  padding-right: 10px; /* Some space between the text and the buttons */
+  width: 200px; /* You can adjust this width as per your requirement */
+  height: 25px;
+  overflow-x: auto; /* This will add a horizontal scroll bar if the content overflows */
+  white-space: nowrap; /* This prevents the text from wrapping to the next line */
+}
+
+.editButton, .deleteButton, .saveButton {
+  flex: 1; /* This makes the buttons take equal space */
+  padding: 5px;
+  border: 1px solid #ccc;
+  background-color: #e9a425;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  text-align: center; /* Centers the text inside the buttons */
+  padding: 1px;
+}
+
+.editButton:hover { background-color: #e6e6e6; }
+.deleteButton { color: #fff; background-color: #f44336; border: none; }
+.deleteButton:hover { background-color: #d32f2f; }
+
+#addDomains {
+  width: 98%;
+  background-color: #dbdbdbe5;
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+}
+
+body.dark-mode #addDomains {
+  width: 98%;
+  background-color: #555;
+  font-family: inherit;
+  font-size: inherit;
+  color: #f9f9f9;
+  border: none;
+}
+
+body.dark-mode #scanType{
+  padding-right: 1px;
+  width: 100%;
+  text-align: center;
+  color: #f9f9f9; /* Text color in dark mode */
+  background-color: #555; /* Background color in dark mode */
+  border: none;
+}
+
+div {
+  display: flex;
+  align-items: center;
+  text-align: left;
+}
+
+p {
+  font-size: 14px;
+  margin: 0;
+}
+
+input[type=radio] { margin-right: 5px; }
+label { font-size: 12px; }
+
+body.dark-mode {
+  background-color: #727272;
+  color: #f9f9f9;
+}
+
+body.dark-mode button {
+  background-color: #555;
+  color: #f9f9f9; /* Text color in dark mode */
+  border-color: #777; /* Border color if any */
+}
+
+body.dark-mode .deleteButton {
+  background-color: #f44336;
+}
+
+#darkModeContainer {
+  display: flex;
+  align-items: center;
+  padding-bottom: 5px;
+}
+
+#darkModeContainer input[type="radio"] {
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+#darkModeContainer label {
+  font-size: 14px;
+  color: inherit; /* So that it matches the text color */
+  cursor: pointer;
+}
+
+.dark-mode #darkModeContainer label {
+  color: inherit; /* To match dark mode text color */
+}
+
+#notification {
+  font-size: 25px;
+  color: #54d719;
+}
+
+/*               OVERPASS API                   */
+
+.tabContent {
+  display: none;
+}
+
+.tabButton {
+  background-color: #e9a425;
+  border: none;
+  border-bottom: 3px solid #d68d1a;
+  color: #333;
+  padding: 6px 15px;
+  cursor: pointer;
+  font-weight: 550;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+  margin-bottom: -1px; /* this will help the tab visually overlap the content box */
+  border-radius: 5px 5px 0 0; /* round top corners */
+  display: inline-block;
+}
+
+/* .tabButton:hover {
+
+} */
+
+.tabButton.active {
+  border-bottom: 3px solid #dbdbdbe5;
+}

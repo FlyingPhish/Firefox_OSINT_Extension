@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+  <link rel="stylesheet" href="popup.css">
+
+  <head>
+    <title>OSINT Google Dork Scanner</title>
+  </head>
+
+  <body>
+    
+    <button id="overpassTabButton" class="tabButton">Overpass API</button>
+    <div id="overpassAPI" class="tabContent">
+      <h1>Overpass API</h1>
+      <button id="openOverpass">Open Overpass Turbo + Load Queries</button>
+      </br></br>
+    </div>
+
+    <h1>OSINT Google Dork Scanner</h1>
+
+    <div id="darkModeContainer">
+      <input type="radio" id="lightMode" name="theme" value="light" checked>
+      <label for="lightMode">Light</label>
+      <input type="radio" id="darkMode" name="theme" value="dark">
+      <label for="darkMode">Dark</label>
+    </div>
+    
+    <div id="status">Site Tracking: OFF</div>
+    <button id="toggleButton">Toggle Tracking</button>
+
+    <h2>Tracked Domains</h2>
+    <div class="domainList"></div>
+    <button id="clearListButton">Clear List</button>
+
+    <h2>Launch Scan</h2>
+    <div>
+      <select id="scanType">
+        
+        <!-- Business Entity -->
+        <optgroup label="Business Entity">
+            <option value="businessInfo">Business Info</option>
+            <option value="domainData">Domain Data</option>
+            <option value="general">General Site</option>
+            <option value="jobOpenings">Job Openings</option>
+            <option value="legalMatters">Legal Matters</option>
+            <option value="paste">Paste Sites</option>
+        </optgroup>
+
+        <!-- Cloud Resources -->
+        <optgroup label="Cloud and DevOps">
+            <option value="azureResources">Azure Resources</option>
+            <option value="cloudStorage">Cloud Storage</option>
+            <option value="code">Code Repos</option>
+            <option value="dockerAPIs">Docker APIs</option>
+            <option value="k8sDashboards">Kubernetes Resources</option>
+            <option value="notion">Shared Notion Resources</option>
+        </optgroup>
+
+        <!-- Infrastructure -->
+        <optgroup label="Infrastructure">
+            <option value="adminPortals">Admin Portals</option>
+            <option value="apiDocs">API Documentation</option>
+            <option value="cmsAccessPoints">CMS Resources</option>
+            <option value="openDirectories">Open Directories</option>
+            <option value="serverConfigs">Server Config Files</option>
+        </optgroup>
+
+        <!-- Documents and Sensitive Info -->
+        <optgroup label="Documents and Sensitive Info">
+            <option value="credentials">Credentials</option>
+            <option value="documents">Documents</option>
+            <option value="encryptionKeys">Encryption Keys</option>
+            <option value="interesting">Interesting Files</option>
+            <option value="sensitiveKeywords">Sensitive Keywords</option>
+        </optgroup>
+
+        <!-- Vulnerabilities -->
+        <optgroup label="Vulnerabilities">
+            <option value="dbs">Database Files</option>
+            <option value="generalErrors">Verbose Errors</option>
+            <option value="sqlServerErrors">SQL Server Errors</option>
+            <option value="versionExposures">Software Version Disclosure</option>
+        </optgroup>
+
+      </select>
+      <button id="launchScan">Launch Scan</button>
+    </div>
+
+    <h2>Scan Configurations</h2>
+    <div>
+      <input type="radio" id="singleTab" name="scanConfig" value="single">
+      <label for="singleTab">Single Tab (Spawn one tab w/ all)</label><br>
+      <input type="radio" id="multiTab" name="scanConfig" value="multi" checked>
+      <label for="multiTab">Multiple Tabs (Spawn as many needed tabs)</label><br>
+    </div>
+
+    <h2>URL/Domain Configurations</h2>
+    <div>
+      <input type="radio" id="useExactSites" name="siteConfig" value="exact" checked>
+      <label for="useExactSites">Use exact sites (subdomain.domain.x)</label><br>
+      <input type="radio" id="useDomainsOnly" name="siteConfig" value="domain">
+      <label for="useDomainsOnly">Use domains only (domain.x)</label>
+    </div>
+
+    <h2>GDork Modifiers</h2>
+    <div>
+      <input type="radio" id="noLimit" name="dorkModifier" value="noLimit" checked>
+      <label for="noLimit">No Modifiers</label><br>
+      <input type="radio" id="limitToSite" name="dorkModifier" value="limit">
+      <label for="limitToSite">Site Modifier: (site:"x")</label><br>
+      <input type="radio" id="intitleModifier" name="dorkModifier" value="intitle">
+      <label for="intitleModifier">Intitle Modifier: (intitle:"x")</label><br>
+      <input type="radio" id="intextModifier" name="dorkModifier" value="intext">
+      <label for="intextModifier">Intext Modifier: (intext:"x")</label><br>
+      <input type="radio" id="inurlModifier" name="dorkModifier" value="inurl">
+      <label for="inurlModifier">Inurl Modifier: (inurl:"x")</label><br>
+    </div>
+
+
+    <h2>Add Domains/Search Terms</h2>
+    <div class="domainList"></div>
+    <textarea id="addDomains" placeholder="Add domains, company names and such. One per line" rows="5" cols="30"></textarea>
+    <button id="addDomainsButton">Add</button>
+    <div id="notification" style="color:green;"></div>
+
+    <h2>Pre-Flight Checks</h2>
+    <button id="testCaptcha">Test Google Captcha</button>
+  
+    <script src="popup.js"></script>
+  </body>
+</html>
